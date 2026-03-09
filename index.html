@@ -346,24 +346,21 @@
           </div>
         </div>
 
-        <div class="contact-form reveal">
+        <form class="contact-form reveal" onsubmit="sendMail(event)">
           <div class="fg">
             <label>Name</label>
-            <input type="text" placeholder="Jane Smith"/>
+            <input type="text" name="name" placeholder="Jane Smith" required />
           </div>
           <div class="fg">
             <label>Email</label>
-            <input type="email" placeholder="jane@company.com"/>
+            <input type="email" name="email" placeholder="jane@company.com" required />
           </div>
           <div class="fg">
             <label>Message</label>
-            <textarea placeholder="Tell me about the role or project..."></textarea>
+            <textarea name="message" placeholder="Tell me about the role or project..." required></textarea>
           </div>
-          <button class="btn btn-fill"
-            onclick="this.textContent='Message sent ✓'; this.style.background='#4c00b8'">
-            Send Message
-          </button>
-        </div>
+          <button class="btn btn-fill" type="submit">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
@@ -379,5 +376,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <!--EmailJS for static form-->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  (function(){
+    emailjs.init("AUe-ZQSkDYWxZYOu2");
+  })();
+</script>
 </body>
 </html>
